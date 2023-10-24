@@ -125,11 +125,16 @@ function [A,B] = Jacobian_A_B(Mp,l,g,Ma,Rp,Ra,Mw,Rw,Rpw,I_arm,I_pendulum_theta,I
   ##############################################  
   #A = double(matrix_A); # A should be (double) datatype 
   #B = double(matrix_B); # B should be (double) datatype
-  A = [0, 0, 0, 8.80575210996951;
+  #A = [0, 0, 0, 8.80575210996951;
+  #     1, 0, 0, 0;
+  #     0, 0, 0, -68.2798018607036; 
+  #     0, 0, 1, 0];
+  #B = [-10.1412263511349;0;11.9684024600333;0];
+  A = [0, 0, 0, 3.31505859277592;
        1, 0, 0, 0;
-       0, 0, 0, -68.2798018607036; 
+       0, 0, 0, -136.442680763323; 
        0, 0, 1, 0];
-  B = [-10.1412263511349;0;11.9684024600333;0];
+  B = [-0.00516649787988293;0;0.0134618549054102;0];
   #neg = [1/2,-1/2;1/2,-1/2];
   #B = B*neg;
 endfunction
@@ -148,9 +153,9 @@ function K = lqr_Rotary_Inverted_Pendulum(A,B)
   C    =  eye(4);          ## Initialise C matrix
   D     = [0;0;0;0];          ## Initialise D matrix
   #Q     = [10,0,0,0;0,1,0,0;0,0,10,0;0,0,0,10]
-  Q = eye(4);  ## Initialise Q matrix
-  #Q = [1,0,0,0,0;0,0.5,0,0,0;0,0,0.5,0,0;0,0,0,1,0;0,0,0,0,1]
-  R     = 1;                  ## Initialise R 
+  #Q = eye(4);  ## Initialise Q matrix
+  Q = [0.5,0,0,0;0,1,0,0;0,0,2,0;0,0,0,2]
+  R     = 20;                  ## Initialise R 
   sys   = ss(A,B,C,D);        ## State Space Model
   K     = lqr(sys,Q,R);       ## Calculate K matrix from A,B,Q,R matrices using lqr()
   #r = ctrb(A,B)
