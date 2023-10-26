@@ -27,7 +27,7 @@ warning('off','all');
 ##*        http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode 
 ##*     
 ##*
-##*  This software is made available on an ?AS IS WHERE IS BASIS?. 
+##*  This software is made available on an �AS IS WHERE IS BASIS�. 
 ##*  Licensee/end user indemnifies and will keep e-Yantra indemnified from
 ##*  any and all claim(s) that emanate from the use of the Software or 
 ##*  breach of the terms of this agreement.
@@ -170,20 +170,20 @@ endfunction
         
 function Rotary_Inverted_Pendulum_main()
   
-  Mp = 0.51592 ;                  # mass of the pendulum (Kg)
-  l = 0.0207 ;                  # length from pendulum's center of mass to pendulum's base/pivot (meter)
+  Mp = 0.5 ;                  # mass of the pendulum (Kg)
+  l = 0.3 ;                  # length from pendulum's center of mass to pendulum's base/pivot (meter)
   g = -9.81 ;                  # Accelertion due to gravity (kgm/s^2)
-  Ma = 0.477 ;                 # mass of the arm (kg)
-  Mw = 0.03;
-  Rw = 0.015;
+  Ma = 0.25 ;                 # mass of the arm (kg)
+  Mw = 0.05;
+  Rw = 0.05;
   r_a = 0.01;                 # radius of arm cylinder (meter)
   r_p = 0.01;                 # radius of pendulum cylinder (meter)
  
-  Rp = 0.1977;                  # length from pendulum's base to arm's pivot point (meter)
-  Ra = 0.09855;                   # length from arm's center of mass to arm's pivot point (meter)
+  Rp = 0.125 ;                  # length from pendulum's base to arm's pivot point (meter)
+  Ra = 0.0625 ;                   # length from arm's center of mass to arm's pivot point (meter)
   Rpw = 0.2;
-  I_arm = 0.004762;                   # Moment of inertia of the arm in yaw angle i.e. alpha (kgm^2)
-  I_pendulum_theta = 0.000491;        # Moment of inertia of the pendulum in tilt angle i.e. theta (kgm^2)
+  I_arm = 0.00125;                   # Moment of inertia of the arm in yaw angle i.e. alpha (kgm^2)
+  I_pendulum_theta = 0.00146;        # Moment of inertia of the pendulum in tilt angle i.e. theta (kgm^2)
   I_pendulum_alpha = 0;        # Moment of inertia of the pendulum in yaw angle (kgm^2)
   I_wheel = 0.00566;
   
